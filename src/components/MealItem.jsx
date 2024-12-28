@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { currencyFormatter } from "../util/formatting";
+import Button from "./UI/Button";
 
 export default function MealItem({ meal }) {
   return (
@@ -14,7 +15,7 @@ export default function MealItem({ meal }) {
           <p className="meal-item-description">{meal.description}</p>
         </div>
         <p className="meal-item-actions">
-          <button className="button">Add to Cart</button>
+          <Button>Add to Card</Button>
         </p>
       </article>
     </li>
