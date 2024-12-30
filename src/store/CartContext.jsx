@@ -29,6 +29,7 @@ function cartReducer(state, action) {
 
     return { ...state, items: updatedItems };
   }
+
   if (action.type === "REMOVE_ITEM") {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.id
@@ -49,6 +50,11 @@ function cartReducer(state, action) {
 
     return { ...state, items: updatedItems };
   }
+
+  if (action.type === "CLEAR_CART") {
+    return { ...state, items: [] };
+  }
+
   return state;
 }
 
@@ -61,11 +67,15 @@ export function CartContextProvider({ children }) {
   function removeItem(id) {
     dispatch({ type: "REMOVE_ITEM", id });
   }
+  function clearCart() {
+    dispatch({ type: "CLEAR_CART" });
+  }
 
   const cartContext = {
     items: cart.items,
     addItem,
     removeItem,
+    clearCart,
   };
 
   //return <CartContext.Provider>{children}</CartContext.Provider>; // before react 19
