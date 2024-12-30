@@ -68,8 +68,6 @@ export function CartContextProvider({ children }) {
     removeItem,
   };
 
-  console.log(cartContext);
-
   //return <CartContext.Provider>{children}</CartContext.Provider>; // before react 19
   return <CartContext value={cartContext}>{children}</CartContext>;
 }
